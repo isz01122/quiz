@@ -1,4 +1,4 @@
-# Calender
+# Quiz
 
 React JS Fundamentals Quiz
 
