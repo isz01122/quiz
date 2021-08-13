@@ -1,7 +1,8 @@
 import "./App.css";
+import { QuizStart } from "./pages";
 
 function App() {
-  return <div>Init App</div>;
+  return <QuizStart />;
 }
 
 export default App;
