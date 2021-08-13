@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Calender
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React JS Fundamentals Quiz
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- [x] React, ReactHooks
+- [x] Material-UI, chart.js, moment
 
-### `yarn start`
+### Essential
+
+- [x] The user can start solving the quiz by clicking the "quiz solving" button.
+- [x] The user can choose from four views of the answer to the question.
+- [x] Users can view the following questions by selecting the answer.
+  - [x] After selecting the answer, you can see the next question button.
+  - [x] You can tell right away if the answer is correct or wrong.
+  - [x] You can move to the next question by clicking the Next Question button.
+- [x] When all the questions are solved, the user can see the following result information.
+  - [x] Time spent completing the quiz
+  - [x] Number of correct answers
+  - [x] Wrong number of answers
+
+### Options
+
+- [x] Chart the percentage of correct answers
+- [x] Resolve the problem
+- [x] Wrong answer notes
+
+## Preview
+
+<a href="url">
+  <img src="https://user-images.githubusercontent.com/43328761/129401209-072caf9e-7dfe-40b9-b87f-add085aecef0.png" width="640" height="480">
+  <img src="https://user-images.githubusercontent.com/43328761/129401260-04b685fe-d5c5-4e33-a824-850f3d8a44be.png" width="640" height="480">
+  <img src="https://user-images.githubusercontent.com/43328761/129401305-bbc27a80-5742-4152-a25e-80d2a9ab7b84.png" width="640" height="480">
+  <img src="https://user-images.githubusercontent.com/43328761/129401356-f5e04bd9-4aa3-434f-bec2-a8530c43cdb2.png" width="640" height="480">
+  <img src="https://user-images.githubusercontent.com/43328761/129401398-35a469ed-dfbc-4a5d-927c-c1efe361de65.png" width="640" height="480">
+  <img src="https://user-images.githubusercontent.com/43328761/129401448-6b26e12d-5a62-4a55-ac0d-7ef5469e9e5d.png" width="640" height="480">
+  <img src="https://user-images.githubusercontent.com/43328761/129401490-870ede41-fdc3-4e49-bfc8-94eeab0d26f9.png" width="640" height="480">
+  <img src="https://user-images.githubusercontent.com/43328761/129401526-1648e758-156f-4231-9c5b-1ee56486b0eb.png" width="640" height="480">
+</a>
+
+## Try it out
+
+`yarn`
+
+`yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
