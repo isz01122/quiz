@@ -99,6 +99,15 @@ code {
   color: #fff !important;
 }
 
+.text-field div {
+  height: 100% !important;
+  overflow: auto;
+}
+
+.text-field div fieldset {
+  border-color: #00c898 !important;
+}
+
 .wd-30 {
   width: 30%;
 }
@@ -119,6 +128,10 @@ code {
   height: 70px;
 }
 
+.h-100 {
+  height: 100% !important;
+}
+
 .mt-100 {
   margin-top: 100px;
 }
@@ -137,6 +150,10 @@ code {
 
 .f-d {
   display: flex;
+}
+
+.j-c {
+  justify-content: center;
 }
 
 .j-sb {
