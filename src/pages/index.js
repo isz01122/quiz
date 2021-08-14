@@ -1,1 +1,1 @@
-export { default as QuizStart } from "./QuizStart";
+export { default as QuizPage } from "./QuizPage";
