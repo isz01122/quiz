@@ -181,7 +181,7 @@ const QuizPage = () => {
   };
 
   return (
-    <div className="main-container">
+    <div className="main-container" data-testid={"quiz-1"}>
       {isStart && (
         <Quiz
           isWrongAnswerMode={isWrongAnswerMode}
