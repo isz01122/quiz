@@ -46,9 +46,9 @@ const QuizPage = () => {
         question: decode(quiz.question),
         correct_answer: decode(quiz.correct_answer),
         incorrect_answers: quiz.incorrect_answers.map(option => decode(option)),
-        options: [quiz.correct_answer, ...quiz.incorrect_answers].sort(
-          () => Math.random() - 0.5
-        ),
+        options: [quiz.correct_answer, ...quiz.incorrect_answers]
+          .sort(() => Math.random() - 0.5)
+          .map(option => decode(option)),
         isCorrect: false,
         isOnceMore: false,
         note: null,
