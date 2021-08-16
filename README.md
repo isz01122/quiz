@@ -8,24 +8,24 @@ React JS Fundamentals Quiz (This project contains sound)
 - [x] Material-UI, chart.js, moment
 - [x] @testing-library
 
-### Essential
+### 필수 구현
 
-- [x] The user can start solving the quiz by clicking the "quiz solving" button.
-- [x] The user can choose from four views of the answer to the question.
-- [x] Users can view the following questions by selecting the answer.
-  - [x] After selecting the answer, you can see the next question button.
-  - [x] You can tell right away if the answer is correct or wrong.
-  - [x] You can move to the next question by clicking the Next Question button.
-- [x] When all the questions are solved, the user can see the following result information.
-  - [x] Time spent completing the quiz
-  - [x] Number of correct answers
-  - [x] Wrong number of answers
+- [x] 사용자는 '퀴즈 풀기' 버튼을 클릭하여 퀴즈 풀기를 시작할 수 있다.
+- [x] 사용자는 문한에 대한 답안을 4개 보기 중에 선택할 수 있다.
+- [x] 사용자는 답안을 선택하면 다음 문항을 볼 수 있다.
+  - [x] 답안 선택 후 다음 문항 버튼을 볼 수 있다.
+  - [x] 답안이 맞았는지 틀렸는지 바로 알 수 있다.
+  - [x] 다음 문항 버튼을 클릭하여 다음 문항으로 이동할 수 있다.
+- [x] 모든 문항을 다 풀면 사용자는 다음과 같은 결과 정보를 볼 수 있다.
+  - [x] 퀴즈를 마칠 때까지 소요된 시간
+  - [x] 정답 개수
+  - [x] 오답 수
 
-### Options
+### 추가 구현
 
-- [x] Chart the percentage of correct answers
-- [x] Resolve the problem
-- [x] Wrong answer notes
+- [x] 정 오답에 대한 비율을 차트로 표기
+- [x] 다시 풀기
+- [x] 오답 노트
 
 ## Preview
 
