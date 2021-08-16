@@ -78,7 +78,7 @@ const Quiz = ({
         }
       ]
     },
-    maintainAspectRatio: true
+    maintainAspectRatio: false
   };
 
   const data = {
@@ -113,7 +113,7 @@ const Quiz = ({
                   {quiz.options.map((option, index) => {
                     return (
                       <FormControlLabel
-                        className="h-50 font-size-md option"
+                        className="h-50 option"
                         key={index}
                         value={option}
                         control={<Radio style={{ color: "black" }} />}
@@ -172,19 +172,21 @@ const Quiz = ({
           <div className="f-d j-sb">
             <div className="wd-30">
               <div className="text-title mb-30">{"<결과>"}</div>
-              <div className="text-title mb-10">{`소요 시간 : ${moment
+              <div className="text-sub-title mb-10">{`소요 시간 : ${moment
                 .utc(time.duration)
                 .format("HH:mm:ss")}`}</div>
-              <div className="text-title mb-10">{`정답 개수 : ${
+              <div className="text-sub-title mb-10">{`정답 개수 : ${
                 quizzes.filter(quiz => quiz.isCorrect).length
               }개`}</div>
-              <div className="text-title">{`오답 개수 : ${
+              <div className="text-sub-title">{`오답 개수 : ${
                 quizzes.filter(quiz => !quiz.isCorrect).length
               }개`}</div>
             </div>
             <div className="wd-70">
               <div className="text-title mb-30">{"<정 오답 비율>"}</div>
-              <Bar data={data} width={300} height={100} options={options} />
+              <div>
+                <Bar data={data} width={200} height={250} options={options} />
+              </div>
             </div>
           </div>
           <div className="f-d j-fe a-c">
@@ -228,7 +230,7 @@ const Quiz = ({
                   {quiz.options.map((option, index) => {
                     return (
                       <FormControlLabel
-                        className="h-50 font-size-md option"
+                        className="h-50 option"
                         key={index}
                         value={option}
                         control={

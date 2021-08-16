@@ -20,8 +20,8 @@ code {
 }
 
 .quiz-container {
-  width: 80% !important;
-  height: 60% !important;
+  width: 900px !important;
+  height: 500px !important;
   padding: 50px !important;
   border: solid 10px !important;
   border-radius: 20px !important;
@@ -43,21 +43,21 @@ code {
 }
 
 .text-title {
-  font-size: 2rem !important;
+  font-size: 1.5rem !important;
   font-weight: bold;
   letter-spacing: 0.38px !important;
   color: #1a283e;
 }
 
 .text-sub-title {
-  font-size: 1.75rem !important;
+  font-size: 1.25rem !important;
   font-weight: 500;
   letter-spacing: 0.38px !important;
   color: #1a283e;
 }
 
 .text-helper {
-  font-size: 1.75rem !important;
+  font-size: 1.5rem !important;
   font-weight: bold !important;
   letter-spacing: 0.38px !important;
   color: #e02020 !important;
@@ -66,8 +66,8 @@ code {
 }
 
 .normal-btn {
-  width: 200px !important;
-  height: 80px !important;
+  width: 180px !important;
+  height: 70px !important;
   font-size: 20px !important;
   font-weight: bold !important;
   background-color: #fff !important;
@@ -83,8 +83,8 @@ code {
 }
 
 .quiz-start {
-  width: 500px !important;
-  height: 150px !important;
+  width: 350px !important;
+  height: 130px !important;
   font-size: 50px !important;
   font-weight: bold !important;
   background-color: #fff !important;
@@ -125,7 +125,7 @@ code {
 }
 
 .h-50 {
-  height: 70px;
+  height: 50px;
 }
 
 .h-100 {
@@ -169,9 +169,9 @@ code {
 }
 
 .option span {
-  font-size: 1.75rem !important;
+  font-size: 1.5rem !important;
 }
 
 .option:hover {
-  background-color: #dadada;
+  background-color: #e6e6e6;
 }
