@@ -34,11 +34,11 @@ const Quiz = ({
   let isLast = index === quizzes.length - 1 ? true : false;
 
   let dataColor = [];
-  let _data = (quizzes || []).map((q, i) => {
-    if (q.isCorrect && !q.isOnceMore) {
+  let _data = (quizzes || []).map(quiz => {
+    if (quiz.isCorrect && !quiz.isOnceMore) {
       dataColor.push("#66DE93");
       return 100;
-    } else if (q.isCorrect && q.isOnceMore) {
+    } else if (quiz.isCorrect && quiz.isOnceMore) {
       dataColor.push("#FF616D");
       return 50;
     } else {
@@ -82,7 +82,7 @@ const Quiz = ({
   };
 
   const data = {
-    labels: quizzes.map((q, i) => `${i + 1}번`),
+    labels: quizzes.map((quiz, index) => `${index + 1}번`),
     datasets: [
       {
         maxBarThickness: 30,
@@ -95,7 +95,7 @@ const Quiz = ({
   };
 
   return !isWrongAnswerMode ? (
-    <div className="quiz-container">
+    <div className="quiz-container" data-testid={"quiz-component"}>
       {!isFinish && (
         <div className="quiz-form">
           <div>
@@ -207,7 +207,10 @@ const Quiz = ({
       )}
     </div>
   ) : (
-    <div className="quiz-container">
+    <div
+      className="quiz-container"
+      data-testid={"quiz-component-wrong-answer-mode"}
+    >
       {!closeQuiz && (
         <div className="quiz-form">
           <div>

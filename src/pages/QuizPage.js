@@ -108,7 +108,9 @@ const QuizPage = () => {
 
   const handleWrongAnswerNotePress = () => {
     new Audio(nextAudio).play();
-    let _index = quizzes.filter(q => q.isCorrect === false).map(q => q.id);
+    let _index = quizzes
+      .filter(quiz => quiz.isCorrect === false)
+      .map(quiz => quiz.id);
     if (_index.length > 0) {
       setInCorrectedQuizIds(_index);
       setIsWrongAnswerMode(true);
@@ -117,12 +119,12 @@ const QuizPage = () => {
     }
   };
 
-  const handleWrongAnswerNoteTextChange = (e, quiz) => {
-    let _quizzes = quizzes.map(q => {
-      if (q.id === quiz.id) {
-        q.note = e.target.value;
+  const handleWrongAnswerNoteTextChange = (e, _quiz) => {
+    let _quizzes = quizzes.map(quiz => {
+      if (quiz.id === _quiz.id) {
+        quiz.note = e.target.value;
       }
-      return q;
+      return quiz;
     });
     setTempNote(e.target.value);
     setQuizzes(_quizzes);
@@ -176,12 +178,12 @@ const QuizPage = () => {
   };
 
   const buildUpQuizzes = ids => {
-    let _quizzes = quizzes.filter(q => ids.includes(q.id));
+    let _quizzes = quizzes.filter(quiz => ids.includes(quiz.id));
     return _quizzes;
   };
 
   return (
-    <div className="main-container" data-testid={"quiz-1"}>
+    <div className="main-container" data-testid={"quiz-page"}>
       {isStart && (
         <Quiz
           isWrongAnswerMode={isWrongAnswerMode}
@@ -211,6 +213,7 @@ const QuizPage = () => {
           variant="contained"
           onClick={handleQuizStartPress}
           disabled={quizzes.length === 0}
+          data-testid={"quiz-start-button"}
         >
           {quizzes.length === 0 ? <CircularProgress /> : "퀴즈 풀기"}
         </Button>
