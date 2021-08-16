@@ -266,7 +266,7 @@ const Quiz = ({
               label="오답노트"
               style={{ marginRight: 20 }}
               className="text-field"
-              placeholder="문제에 대한 내 생각을 간단하게 메모해 보세요."
+              placeholder="왜 틀렸는지 자신의 생각을 간단하게 메모해 보세요."
               fullWidth
               InputLabelProps={{
                 shrink: true
