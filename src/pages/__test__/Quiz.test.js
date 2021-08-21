@@ -16,7 +16,6 @@ test("퀴즈 페이지가 생성되어야함", () => {
 test("퀴즈 컴포넌트가 생성되어야함", () => {
   render(
     <Quiz
-      isWrongAnswerMode={false}
       quizzes={[
         {
           category: "My Category",
@@ -41,8 +40,7 @@ test("퀴즈 컴포넌트가 생성되어야함", () => {
         endedAt: null,
         duration: null
       }}
-      tempNote={""}
-      closeQuiz={false}
+      isWrongAnswerMode={false}
     />
   );
   const quizPageElement = screen.getByTestId("quiz-component");
@@ -52,7 +50,6 @@ test("퀴즈 컴포넌트가 생성되어야함", () => {
 test("퀴즈 컴포넌트 오답노트가 생성되어야함", () => {
   render(
     <Quiz
-      isWrongAnswerMode={true}
       quizzes={[
         {
           category: "My Category",
@@ -77,13 +74,80 @@ test("퀴즈 컴포넌트 오답노트가 생성되어야함", () => {
         endedAt: null,
         duration: null
       }}
-      tempNote={""}
-      closeQuiz={false}
+      isWrongAnswerMode={true}
     />
   );
   const quizPageElement = screen.getByTestId(
     "quiz-component-wrong-answer-mode"
   );
+  expect(quizPageElement).toBeInTheDocument();
+});
+
+test("퀴즈 결과 컴포넌트가 생성되어야함", () => {
+  render(
+    <Quiz
+      quizzes={[
+        {
+          category: "My Category",
+          type: "multiple",
+          difficulty: "easy",
+          question: "우리나라의 이름은?",
+          correct_answer: "대한민국",
+          incorrect_answers: ["미국", "일본", "중국"],
+          id: 0,
+          options: ["미국", "대한민국", "일본", "중국"],
+          isCorrect: false,
+          isOnceMore: false,
+          note: null,
+          selectedOption: null
+        }
+      ]}
+      index={0}
+      selectedOption={""}
+      isFinish={true}
+      time={{
+        startedAt: null,
+        endedAt: null,
+        duration: null
+      }}
+      isWrongAnswerMode={false}
+    />
+  );
+  const quizPageElement = screen.getByTestId("result-component");
+  expect(quizPageElement).toBeInTheDocument();
+});
+
+test("퀴즈 종료화면 컴포넌트가 생성되어야함", () => {
+  render(
+    <Quiz
+      quizzes={[
+        {
+          category: "My Category",
+          type: "multiple",
+          difficulty: "easy",
+          question: "우리나라의 이름은?",
+          correct_answer: "대한민국",
+          incorrect_answers: ["미국", "일본", "중국"],
+          id: 0,
+          options: ["미국", "대한민국", "일본", "중국"],
+          isCorrect: false,
+          isOnceMore: false,
+          note: null,
+          selectedOption: null
+        }
+      ]}
+      index={0}
+      selectedOption={""}
+      isFinish={true}
+      time={{
+        startedAt: null,
+        endedAt: null,
+        duration: null
+      }}
+      isWrongAnswerMode={true}
+    />
+  );
+  const quizPageElement = screen.getByTestId("close-component");
   expect(quizPageElement).toBeInTheDocument();
 });
 

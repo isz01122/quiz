@@ -82,6 +82,10 @@ code {
   color: #fff !important;
 }
 
+.loading-spinner {
+  color: #00c898 !important;
+}
+
 .quiz-start {
   width: 350px !important;
   height: 130px !important;
@@ -106,6 +110,10 @@ code {
 
 .text-field div fieldset {
   border-color: #00c898 !important;
+}
+
+.c-black {
+  color: #000 !important;
 }
 
 .wd-30 {
