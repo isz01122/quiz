@@ -1,4 +1,3 @@
-import "./App.css";
 import { QuizPage } from "./pages";
 
 function App() {

@@ -4,23 +4,21 @@ import decode from "html-entities-decode";
 import moment from "moment";
 
 import Quiz from "../components/Quiz";
-import { getData } from "../services/API";
 import correctAudio from "../audios/correct.mp3";
 import incorrectAudio from "../audios/incorrect.mp3";
 import startAudio from "../audios/start.mp3";
 import nextAudio from "../audios/next.mp3";
 import closeAudio from "../audios/close.mp3";
+import API from "../services/API";
 
 const QuizPage = () => {
   const [quizzes, setQuizzes] = useState([]);
   const [index, setIndex] = useState(0);
   const [isStart, setIsStart] = useState(false);
   const [isFinish, setIsFinish] = useState(false);
-  const [closeQuiz, setCloseQuiz] = useState(false);
   const [isWrongAnswerMode, setIsWrongAnswerMode] = useState(false);
   const [inCorrectedQuizIds, setInCorrectedQuizIds] = useState([]);
   const [selectedOption, setSelectedOption] = useState("");
-  const [tempNote, setTempNote] = useState("");
   const [time, setTime] = useState({
     startedAt: null,
     endedAt: null,
@@ -28,9 +26,9 @@ const QuizPage = () => {
   });
 
   useEffect(() => {
-    getData()
+    API.getQuizzes()
       .then(response => {
-        let quizzes = brushUpQuizzes(response);
+        const quizzes = brushUpQuizzes(response);
         setQuizzes(quizzes);
       })
       .catch(error => {
@@ -39,8 +37,8 @@ const QuizPage = () => {
   }, []);
 
   const brushUpQuizzes = response => {
-    let quizzes = response.data.results.map((quiz, index) => {
-      let _quiz = {
+    const quizzes = response.data.results.map((quiz, index) => {
+      const _quiz = {
         ...quiz,
         id: index,
         question: decode(quiz.question),
@@ -69,7 +67,7 @@ const QuizPage = () => {
   };
 
   const handleFinishPress = () => {
-    let _endedAt = moment();
+    const _endedAt = moment();
     setIndex(0);
     setSelectedOption("");
     setIsFinish(true);
@@ -80,15 +78,13 @@ const QuizPage = () => {
     });
     if (isWrongAnswerMode) {
       new Audio(closeAudio).play();
-      setCloseQuiz(true);
-      setTempNote("");
     }
   };
 
   const handleOnceMorePress = () => {
     new Audio(nextAudio).play();
     setSelectedOption("");
-    let _quizzes = quizzes.map((quiz, idx) => {
+    const _quizzes = quizzes.map((quiz, idx) => {
       if (idx === index) {
         quiz.isOnceMore = true;
       }
@@ -101,32 +97,29 @@ const QuizPage = () => {
     new Audio(nextAudio).play();
     setIndex(index + 1);
     setSelectedOption("");
-    if (isWrongAnswerMode) {
-      setTempNote("");
-    }
   };
 
   const handleWrongAnswerNotePress = () => {
     new Audio(nextAudio).play();
-    let _index = quizzes
+    const _incorrectedIds = quizzes
       .filter(quiz => quiz.isCorrect === false)
       .map(quiz => quiz.id);
-    if (_index.length > 0) {
-      setInCorrectedQuizIds(_index);
+    if (_incorrectedIds.length > 0) {
+      setInCorrectedQuizIds(_incorrectedIds);
       setIsWrongAnswerMode(true);
+      setIsFinish(false);
     } else {
       alert("오답이 없습니다.");
     }
   };
 
   const handleWrongAnswerNoteTextChange = (e, _quiz) => {
-    let _quizzes = quizzes.map(quiz => {
+    const _quizzes = quizzes.map(quiz => {
       if (quiz.id === _quiz.id) {
         quiz.note = e.target.value;
       }
       return quiz;
     });
-    setTempNote(e.target.value);
     setQuizzes(_quizzes);
   };
 
@@ -151,7 +144,7 @@ const QuizPage = () => {
   };
 
   const handleOptionChange = e => {
-    let correctAnswer = quizzes[index].correct_answer;
+    const correctAnswer = quizzes[index].correct_answer;
     let seletedAnswer = e.target.value;
     let _quizzes = [];
     if (seletedAnswer === correctAnswer) {
@@ -177,8 +170,8 @@ const QuizPage = () => {
     setSelectedOption(seletedAnswer);
   };
 
-  const buildUpQuizzes = ids => {
-    let _quizzes = quizzes.filter(quiz => ids.includes(quiz.id));
+  const buildQuizList = ids => {
+    const _quizzes = quizzes.filter(quiz => ids.includes(quiz.id));
     return _quizzes;
   };
 
@@ -186,9 +179,8 @@ const QuizPage = () => {
     <div className="main-container" data-testid={"quiz-page"}>
       {isStart && (
         <Quiz
-          isWrongAnswerMode={isWrongAnswerMode}
           quizzes={
-            isWrongAnswerMode ? buildUpQuizzes(inCorrectedQuizIds) : quizzes
+            isWrongAnswerMode ? buildQuizList(inCorrectedQuizIds) : quizzes
           }
           onFinishPress={handleFinishPress}
           onNextPress={handleNextPress}
@@ -199,12 +191,11 @@ const QuizPage = () => {
           time={time}
           onRestartPress={handleRestartPress}
           onOnceMorePress={handleOnceMorePress}
+          isWrongAnswerMode={isWrongAnswerMode}
           onWrongAnswerNotePress={handleWrongAnswerNotePress}
           onWrongAnswerNoteTextChange={(e, quiz) =>
             handleWrongAnswerNoteTextChange(e, quiz)
           }
-          tempNote={tempNote}
-          closeQuiz={closeQuiz}
         />
       )}
       {!isStart && (
@@ -215,7 +206,11 @@ const QuizPage = () => {
           disabled={quizzes.length === 0}
           data-testid={"quiz-start-button"}
         >
-          {quizzes.length === 0 ? <CircularProgress /> : "퀴즈 풀기"}
+          {quizzes.length === 0 ? (
+            <CircularProgress className="loading-spinner" size={50} />
+          ) : (
+            "퀴즈 풀기"
+          )}
         </Button>
       )}
     </div>

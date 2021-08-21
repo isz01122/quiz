@@ -28,12 +28,12 @@ exports[`matches snapshot 1`] = `
       className="MuiButton-label"
     >
       <div
-        className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        className="MuiCircularProgress-root loading-spinner MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
         role="progressbar"
         style={
           Object {
-            "height": 40,
-            "width": 40,
+            "height": 50,
+            "width": 50,
           }
         }
       >
