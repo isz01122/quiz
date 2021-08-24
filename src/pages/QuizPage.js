@@ -4,11 +4,6 @@ import decode from "html-entities-decode";
 import moment from "moment";
 
 import Quiz from "../components/Quiz";
-// import correctAudio from "../audios/correct.mp3";
-// import incorrectAudio from "../audios/incorrect.mp3";
-// import startAudio from "../audios/start.mp3";
-// import nextAudio from "../audios/next.mp3";
-// import closeAudio from "../audios/close.mp3";
 import {
   correctAudio,
   incorrectAudio,
