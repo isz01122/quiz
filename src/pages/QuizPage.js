@@ -4,11 +4,18 @@ import decode from "html-entities-decode";
 import moment from "moment";
 
 import Quiz from "../components/Quiz";
-import correctAudio from "../audios/correct.mp3";
-import incorrectAudio from "../audios/incorrect.mp3";
-import startAudio from "../audios/start.mp3";
-import nextAudio from "../audios/next.mp3";
-import closeAudio from "../audios/close.mp3";
+// import correctAudio from "../audios/correct.mp3";
+// import incorrectAudio from "../audios/incorrect.mp3";
+// import startAudio from "../audios/start.mp3";
+// import nextAudio from "../audios/next.mp3";
+// import closeAudio from "../audios/close.mp3";
+import {
+  correctAudio,
+  incorrectAudio,
+  startAudio,
+  nextAudio,
+  closeAudio
+} from "../audios";
 import API from "../services/API";
 
 const QuizPage = () => {
@@ -68,6 +75,9 @@ const QuizPage = () => {
 
   const handleFinishPress = () => {
     const _endedAt = moment();
+    if (isWrongAnswerMode) {
+      new Audio(closeAudio).play();
+    }
     setIndex(0);
     setSelectedOption("");
     setIsFinish(true);
@@ -76,20 +86,17 @@ const QuizPage = () => {
       endedAt: _endedAt,
       duration: _endedAt.diff(time.startedAt)
     });
-    if (isWrongAnswerMode) {
-      new Audio(closeAudio).play();
-    }
   };
 
   const handleOnceMorePress = () => {
     new Audio(nextAudio).play();
-    setSelectedOption("");
     const _quizzes = quizzes.map((quiz, idx) => {
       if (idx === index) {
         quiz.isOnceMore = true;
       }
       return quiz;
     });
+    setSelectedOption("");
     setQuizzes(_quizzes);
   };
 
@@ -125,6 +132,11 @@ const QuizPage = () => {
 
   const handleRestartPress = () => {
     new Audio(nextAudio).play();
+    let _quizzes = quizzes.map(quiz => {
+      quiz.isCorrect = false;
+      quiz.isOnceMore = false;
+      return quiz;
+    });
     setIndex(0);
     setSelectedOption("");
     setIsFinish(false);
@@ -133,12 +145,6 @@ const QuizPage = () => {
       startedAt: moment(),
       endedAt: null,
       duration: null
-    });
-
-    let _quizzes = quizzes.map(quiz => {
-      quiz.isCorrect = false;
-      quiz.isOnceMore = false;
-      return quiz;
     });
     setQuizzes(_quizzes);
   };
